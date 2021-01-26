@@ -1,35 +1,55 @@
 <html lang="en">
-   <head>
-      <link href="assets/css/styles.css" rel="stylesheet">
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/default.min.css">
-   </head>
-   <body translate="yes">
-      <div class="content">
-         <h1>Schematic diagram of a prototype oscillator</h1>
-         <ul>Contains three blocks
-            <li>Active integrator A</li>
-            <li>Active integrator B</li>
-            <li>Inverting active amplifier</li>
-         </ul>
-         <h2>Diagram of analogue prototype</h2>
-         <img src="assets/images/oa-oscillator-schematic.svg">
-         <h2>Digital oscillator stepwise domain chart</h2>
-         <h3 class="red">Note: time constant of integrators is changed at certain time steps (refer to source code)</h3>
-         <div class="row charts"></div>
-         <h2>Digital oscillator source code</h2>
-         <h3 class="red">Note: time constant of integrators is changed at certain time steps</h3>
-         <pre><code id="chartBs" class="javascript"></code></pre>
-      </div>
-      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script> 
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js" integrity="sha512-9GIHU4rPKUMvNOHFOer5Zm2zHnZOjayOO3lZpokhhCtgt8FNlNiW/bb7kl0R5ZXfCDVPcQ8S4oBdNs92p5Nm2w==" crossorigin="anonymous"></script>
-      <script src="assets/js/chartBs.js"></script>
-      <script src="assets/js/hljs.js"></script>
+  <head>
+    <link href="assets/css/styles.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/default.min.css">
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js" integrity="sha512-9GIHU4rPKUMvNOHFOer5Zm2zHnZOjayOO3lZpokhhCtgt8FNlNiW/bb7kl0R5ZXfCDVPcQ8S4oBdNs92p5Nm2w==" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+  </head>
+  <body translate="yes">
+    <div id="google_translate_element"></div>
+    <div class="content">
+      <h1>Schematic diagram of a prototype oscillator</h1>
+      <ul>Contains three blocks
+        <li>Active integrator A</li>
+        <li>Active integrator B</li>
+        <li>Inverting active amplifier</li>
+      </ul>
+      <h2>Diagram of analogue prototype</h2>
+      <img src="assets/images/oa-oscillator-schematic.svg">
+      <h2>Digital oscillator stepwise domain chart</h2>
+      <h3 class="red">Note: time constant of integrators is changed at certain time steps (refer to source code)</h3>
+      <div class="row charts"></div>
+      <h2>Digital oscillator source code</h2>
+      <h3 class="red">Note: time constant of integrators is changed at certain time steps</h3>
+      <pre><code id="chartbs" class="javascript"></code></pre>
+    </div>
+    <script type="text/javascript" src="assets/js/chartBs.js"></script>
+    <script type="text/javascript" src="assets/js/hljs.js"></script>
 
-      <!-- Lightweight client-side loader that feature-detects and load polyfills only when necessary -->
-      <script src="https://cdn.jsdelivr.net/npm/@webcomponents/webcomponentsjs@2/webcomponents-loader.min.js"></script>
+    <!-- Lightweight client-side loader that feature-detects and load polyfills only when necessary -->
+    <script src="https://cdn.jsdelivr.net/npm/@webcomponents/webcomponentsjs@2/webcomponents-loader.min.js"></script>
 
-      <!-- Load the element definition -->
-      <script type="module" src="https://cdn.jsdelivr.net/gh/zerodevx/zero-md@1/src/zero-md.min.js"></script>
-   </body>
+    <!-- Load the element definition -->
+    <script type="module" src="https://cdn.jsdelivr.net/gh/zerodevx/zero-md@1/src/zero-md.min.js"></script>
+    <script type="text/javascript">
+      function googleTranslateElementInit() {
+        $
+          .when(new google.translate.TranslateElement({
+            pageLanguage: 'en',
+            includedLanguages: 'ru,fr,es,de',
+            layout: google.translate.TranslateElement.FloatPosition.TOP_LEFT
+          }, 'google_translate_element'))
+          .done(function () {
+            var select = document.getElementsByClassName('goog-te-combo')[0];
+            select.selectedIndex = 1;
+            select.addEventListener('click', function () {
+              select.dispatchEvent(new Event('change'));
+            });
+            select.click();
+          });
+      }
+    </script>
+  </body>
 </html>

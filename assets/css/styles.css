@@ -1,5 +1,5 @@
 .content {
-  max-width: calc(800px * var(--k));
+  max-width: calc(1060px * var(--k));
   margin: 0 15px 0 15px;
   text-align: center;
   --k: 1;
