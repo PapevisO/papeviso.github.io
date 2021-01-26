@@ -18,6 +18,9 @@
   max-width: 100%;
   text-align: left;
 }
+.content .red{
+  color: red;
+}
 pre code {
   text-align: left;
 }
