@@ -1,0 +1,39 @@
+.content {
+  max-width: calc(800px * var(--k));
+  margin: 0 15px 0 15px;
+  text-align: center;
+  --k: 1;
+  --text-koef: var(--k);
+}
+.content .charts {
+  width: 100%;
+  margin-top: calc(50px * var(--k));
+  margin-bottom: calc(50px * var(--k));
+}
+.content img {
+  max-width: 100%;
+  margin: 0 auto 0 auto;
+}
+.content h1, .content p, .content ul {
+  max-width: 100%;
+  text-align: left;
+}
+pre code {
+  text-align: left;
+}
+@media screen and (max-width: 1200px) and (min-width: 1060px) .content {
+  --k: 0.8;
+  --text-koef: 0.8;
+}
+@media screen and (max-width: 575px) .content {
+  --k: 0.7;
+  --text-koef: 1;
+}
+@media screen and (max-width: 410px) .content {
+  --k: 0.6;
+  --text-koef: 1;
+}
+@media screen and (max-width: 350px) .content {
+  --k: 0.55;
+  --text-koef: 1;
+}
