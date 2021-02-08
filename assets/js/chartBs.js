@@ -1,39 +1,53 @@
+class BaseActiveIntegrator {
+  constructor(initNormalized){
+    this.divisionFactor = 2048; /* active integrator _*/
+      /*_ applies division factor to evaluate a normalized value */
+    if(typeof(initNormalized) === "undefined"){
+      this.accumulated = 0;
+    } else {
+      this.accumulated = initNormalized * this.divisionFactor;
+    }
+    this.evaluateNextNormalized()
+  }
+
+  evaluateNextNormalized() {
+    this.normalized = this.accumulated / this.divisionFactor;
+  }
+
+  putValue(value){
+    this.accumulated += value;
+    this.evaluateNextNormalized();
+    // this.accumulated -= this.normalized;
+  }
+
+  getValue(){
+    return this.normalized;
+  }
+}
+
 document.addEventListener('DOMContentLoaded', function(){
-  var amp = 0.1;        /* active integrator gain */
-  var linearAmp =22.2;  /* inverting amplifier gain */
-  var shift = 16777216; /* active integrator accumulating division factor */
-                  /* Initial value for normalizedA */
-                  /* |     | */
-  var accumulatorA = -1000.0 * shift;
-                  /* \_____/ */
-  var accumulatorB = 0.0, normalizedA = 0.0,
-      nextValue = 0.0,    normalizedB = 0.0;
+      /* Initialize integratorA with normalized value */
+  var IntegratorA = new BaseActiveIntegrator(1.0);
+      /* Initialize integratorB with normalized value */
+  var IntegratorB = new BaseActiveIntegrator(0.0);
+
   var labels = [], normsA = [],
       values = [], normsB = [];
+  var nextValue = 0.0;
 
   for(i=1; i<50000; i++){
     /* nextValue incomes as a closed-loop to R1 from DA3 */
-    var thisValue = -nextValue * linearAmp
-    accumulatorA += thisValue;
-    thisValue = accumulatorA / shift;
-    accumulatorA -= thisValue;
-    normalizedA = thisValue * amp;
-    thisValue = -normalizedA
-    accumulatorB += thisValue;
-    thisValue = accumulatorB / shift;
-    accumulatorB -= thisValue;
-    normalizedB = thisValue * amp;
-    nextValue += normalizedA + normalizedB;
-    if(i % 50 == 0){
-      labels.push(i);
+    var thisValue = -nextValue;
+    IntegratorA.putValue(thisValue);
+    thisValue = -IntegratorA.normalized;
+    IntegratorB.putValue(thisValue);
+    nextValue = -IntegratorB.normalized;
+    if(i % 120 == 0){
+      labels.push(i/60);
       values.push(nextValue);
-      normsA.push(normalizedA);
-      normsB.push(normalizedB);
+      normsA.push(IntegratorA.normalized);
+      normsB.push(IntegratorB.normalized);
     }
-    /* time constant of integrators is changed at the following time steps */
-    if(i==8640){ shift /= 4; accumulatorA /= 4; accumulatorB /= 4; }
-    /* if(i==23768){ shift *= 4; accumulatorA *= 4; accumulatorB *= 4; } */
-    /* if(i==29000){ shift *= 2; accumulatorA *= 2; accumulatorB *= 2; } */
   }
   var chartData = {/* from w  ww.j a v  a 2 s.com */
     CC: [{
