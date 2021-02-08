@@ -1,31 +1,31 @@
-class BaseActiveIntegrator {
-  constructor(initNormalized){
-    this.divisionFactor = 2048; /* active integrator _*/
-      /*_ applies division factor to evaluate a normalized value */
-    if(typeof(initNormalized) === "undefined"){
-      this.accumulated = 0;
-    } else {
-      this.accumulated = initNormalized * this.divisionFactor;
-    }
-    this.evaluateNextNormalized()
-  }
-
-  evaluateNextNormalized() {
-    this.normalized = this.accumulated / this.divisionFactor;
-  }
-
-  putValue(value){
-    this.accumulated += value;
-    this.evaluateNextNormalized();
-    // this.accumulated -= this.normalized;
-  }
-
-  getValue(){
-    return this.normalized;
-  }
-}
-
 document.addEventListener('DOMContentLoaded', function(){
+  class BaseActiveIntegrator {
+    constructor(initNormalized){
+      this.divisionFactor = 2048; /* active integrator _*/
+        /*_ applies division factor to evaluate a normalized value */
+      if(typeof(initNormalized) === "undefined"){
+        this.accumulated = 0;
+      } else {
+        this.accumulated = initNormalized * this.divisionFactor;
+      }
+      this.evaluateNextNormalized()
+    }
+  
+    evaluateNextNormalized() {
+      this.normalized = this.accumulated / this.divisionFactor;
+    }
+  
+    putValue(value){
+      this.accumulated += value;
+      this.evaluateNextNormalized();
+      // this.accumulated -= this.normalized;
+    }
+  
+    getValue(){
+      return this.normalized;
+    }
+  }
+
       /* Initialize integratorA with normalized value */
   var IntegratorA = new BaseActiveIntegrator(1.0);
       /* Initialize integratorB with normalized value */
