@@ -3,11 +3,13 @@ document.addEventListener('DOMContentLoaded', function(){
     constructor(initNormalized){
       this.divisionFactor = 2048; /* active integrator _*/
         /*_ applies division factor to evaluate a normalized value */
+
       if(typeof(initNormalized) === "undefined"){
         this.accumulated = 0;
       } else {
         this.accumulated = initNormalized * this.divisionFactor;
       }
+
       this.evaluateNextNormalized()
     }
   
@@ -18,7 +20,6 @@ document.addEventListener('DOMContentLoaded', function(){
     putValue(value){
       this.accumulated += value;
       this.evaluateNextNormalized();
-      // this.accumulated -= this.normalized;
     }
   
     getValue(){
