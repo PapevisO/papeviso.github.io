@@ -1,5 +1,6 @@
 <html lang="en">
   <head>
+    <meta http-equiv="Cache-Control" content="no-store" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.5.0-rc.4/dist/css/foundation.min.css" integrity="sha256-VEEaOnBKVRoYPn4AID/tY/XKVxKEqXstoo/xZ6nemak= sha384-D46t32f421/hB30qwnim2pIcisNN5GU9+6m2Mfnd3dKpTSFidZLa08/1StEiCFId sha512-WkgzH8VKemDfwrp18r+wgbx+oHXOkfd2kJs7ocAXdGDgonXDXh88E90IRtRZRXtO0IHprxYHYlY14h+wyTsUDA==" crossorigin="anonymous">
     <style>
       input[name="accordion-select"], .panel-block {
@@ -16,40 +17,62 @@
   <body translate="no"> 
     <input type="radio" id="panel-1" name="accordion-select">
     <input type="radio" id="panel-2" name="accordion-select">
+    <input type="radio" id="panel-3" name="accordion-select">
 
     <ul class="accordion" data-accordion>
       <li class="accordion-item" data-accordion-item>
         <a class="accordion-title"><label for="panel-1">Digital Harmonic oscillator principle and source code</label></a>
         <div class="accordion-content content-1" data-tab-content>
-          <p>Panel 1. Lorem ipsum dolor</p>
+          <p>A complete demo of the below:</p>
+          <ul>
+            <li>Schematic concept of analogue active harmonic oscillator (AHO)</li>
+            <li>Concept of digital active harmonic oscillator (DAHO)</li>
+            <li>
+              A source code that practically implements an algorythm of DAHO.
+              It simulates a sinusoid in a real-time using algorythm rather than pre-calculated discrete values table.
+            </li>
+          </ul>
           <a href='/chart.html'>digital integrators based harmonic oscillator</a>
         </div>
       </li>
       <li class="accordion-item" data-accordion-item>
         <a class="accordion-title"><label for="panel-2">Assessment ruby task. RoR + RabbitMQ. Async URL shortener with metrics</label></a>
         <div class="accordion-content content-2" data-tab-content>
-          <textarea>Record model CRUD explorer /records</textarea>
+          <p>Record model CRUD explorer /records</p>
           <button class="button" onclick="location.href='https://tracking-app.papievis.com/records'">Record explorer</button>
-          <textarea>Stats of link shortener /stats</textarea>
+          <p>Stats of link shortener /stats</p>
           <button class="button" onclick="location.href='https://tracking-app.papievis.com/stats'">Stats</button>
-          <textarea>
+          <p>
             A page to create a shortened link
             <br>
             After button is clicked you are being redirected to https://tracking-app.papievis.com/s/{#hash}
             <br>
             Where #hash is a unique short sequence of symbols. After this you will immediately be redirected to the target page.
             <a href='https://tracking-app.papievis.com/?url=https://example.com'>https://tracking-app.papievis.com/?url=https://example.com</a>
-          </textarea>
+          </p>
           <a href='https://tracking-app.papievis.com/?url=https://example.com'>https://tracking-app.papievis.com/?url=https://example.com</a>
-          <textarea>
+          <p>
             RabbitMQ message broker dashboard.
             <br>
             Username: guest
             <br>
             Password: guest
-          </textarea>
-          https://tracking-app-mq.papievis.com/
+          </p>
+          <a href='https://tracking-app-mq.papievis.com/'>https://tracking-app-mq.papievis.com/</a>
         </div>        
+      </li>
+      <li class="accordion-item" data-accordion-item>
+        <a class="accordion-title"><label for="panel-2">Personal CV, published on a Ruby-on-Rails based CRM, self-hosted since 2009</label></a>
+        <div class="accordion-content content-2" data-tab-content>
+          <p>
+            My Personal CV, listing skills, education and detailed experience.
+            <br>
+            Published as a public issue-tracking feed on a Ruby-on-Rails based CRM. An open-source project Redmine.
+            <br>
+            CRM is self-hosted since 2011.
+          </p>
+          <a href='https://redmine.papievis.com/issues/370'>https://redmine.papievis.com/issues/370</a>
+        </div>
       </li>
     </ul>
   </body>
